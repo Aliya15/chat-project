@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a2280fe-4724-4079-a48d-0e73df64a51a" name="Changes" comment="added chatRoom component">
+      <change afterPath="$PROJECT_DIR$/src/components/SendMessage.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ChatRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChatRoom.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +83,7 @@
       <updated>1647111088431</updated>
       <workItem from="1647111094773" duration="9670000" />
       <workItem from="1647172736564" duration="2905000" />
-      <workItem from="1647176050852" duration="38264000" />
+      <workItem from="1647176050852" duration="44855000" />
     </task>
     <task id="LOCAL-00001" summary="added main config">
       <created>1647111469113</created>
@@ -126,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647525347161</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implemented login config">
+      <created>1647591396704</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1647591396704</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +146,7 @@
     <MESSAGE value="added firebase config" />
     <MESSAGE value="added chatRoom component" />
     <MESSAGE value="added signOut component" />
-    <option name="LAST_COMMIT_MESSAGE" value="added signOut component" />
+    <MESSAGE value="implemented login config" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented login config" />
   </component>
 </project>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import SignOut from "./SignOut";
+import SendMessage from './SendMessage'
 
 export default function ChatRoom() {
     const [messages, setMessages] = useState([]);
@@ -15,12 +16,14 @@ export default function ChatRoom() {
         <>
             <SignOut />
             <div className={'chatroom'}>
-                {messages.map(({id, text}) => {
-                    return (<div key={id}>
+                {messages.map(({text}, index) => {
+                    console.log(index);
+                    return (<div key={index}>
                                 <p>{text}</p>
                             </div>)
                 })}
             </div>
+            <SendMessage />
         </>
     )
 }
