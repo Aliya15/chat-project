@@ -5,15 +5,13 @@ import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 function Login() {
     const handleClick = () => {
-        console.log('clicked!!')
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 const user = result.user;
-                console.log(user, token)
-            }).catch((error) => {
+            }).catch(() => {
             // const errorCode = error.code;
             // const errorMessage = error.message;
             // const email = error.email;
