@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from "@mui/material";
-import { auth } from '../firebaseConfig';
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {Button} from '@mui/material';
+import {auth} from '../firebaseConfig';
+import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 
 function Login() {
     const handleClick = () => {
@@ -17,16 +17,17 @@ function Login() {
             // const email = error.email;
             // const credential = GoogleAuthProvider.credentialFromError(error);
         });
-    }
+    };
 
     return (
         <div className={'login-page'}>
             <div className={'login-page_item'}>
                 <h2>Welcome!</h2>
-                <Button variant="contained" className={'login-page_button'} onClick={handleClick}>Login with Google</Button>
+                <Button variant="contained" className={'login-page_button'} onClick={handleClick}>Login with
+                    Google</Button>
             </div>
         </div>
-    )
+    );
 }
 
 export default Login;
