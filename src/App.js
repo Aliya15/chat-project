@@ -1,10 +1,10 @@
 import './App.scss';
-import Login from './components/Login';
-import ChatRoom from './components/ChatRoom';
+import Login from './components/Authorization/Login';
+import ChatRoom from './components/ChatRoom/ChatRoom';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {auth} from './firebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import Spin from './Spin';
+import Spin from './components/Common/Spin';
 
 function App() {
     const [user] = useAuthState(auth);
