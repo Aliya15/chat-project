@@ -1,6 +1,6 @@
 import {getAuth, signOut} from 'firebase/auth';
 import {Button} from '@mui/material';
-import './signout.scss';
+import './SignOut.scss';
 
 export default function SignOut() {
     const auth = getAuth();

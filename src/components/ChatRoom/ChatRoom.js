@@ -1,9 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
 import SignOut from './SignOut';
 import {useDispatch, useSelector} from 'react-redux';
-import {inputText, messagesLoad, sendMessage} from '../redux/actions';
+import {inputText, messagesLoad, sendMessage} from '../store/actions';
 import {Button, Input} from '@mui/material';
-import './chatRoom.scss';
+import './ChatRoom.scss';
 
 function ChatRoom() {
     const [newMessage, setNewMessage] = useState('');
