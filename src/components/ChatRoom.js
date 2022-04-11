@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import SignOut from "./SignOut";
 import { useSelector, useDispatch } from 'react-redux';
 import {inputText, messagesLoad, sendMessage} from '../redux/actions'
 import {Button, Input} from "@mui/material";
+import './chatRoom.scss';
 
 function ChatRoom() {
     const [newMessage, setNewMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const dispatch = useDispatch();
+    const inputRef = useRef(null);
     const allMessages = useSelector(state => {
         const { messagesReducer } = state;
         return messagesReducer.messages;
@@ -26,6 +28,7 @@ function ChatRoom() {
 
     useEffect(() => {
         setMessages(allMessages);
+        inputRef.current.focus();
     }, [newMessage, allMessages])
 
     useEffect(() => {
@@ -36,17 +39,24 @@ function ChatRoom() {
     return (
         <>
             <SignOut />
-            <div className={'chatroom'}>
-                {messages.map(({text}, index) => {
-                    return (<div key={index}>
-                                <p>{text}</p>
-                            </div>)
-                })}
+            <div className='chatroom'>
+                <div className='chatroom_contacts'>
+                    <p>Contacts</p>
+                </div>
                 <div>
-                    <form onSubmit={sendNewMessage}>
-                        <Input value={newMessage} onChange={(e) => setNewMessage(e.target.value)} placeholder={'Messages...'}/>
-                        <Button type='submit' onClick={handleChange}>Send</Button>
-                    </form>
+                    <div className='chatroom_chat'>
+                        {messages.map(({text}, index) => {
+                            return (<div key={index}>
+                                        <p>{text}</p>
+                                    </div>)
+                        })}
+                    </div>
+                    <div className='chatroom_form'>
+                        <form onSubmit={sendNewMessage}>
+                            <Input ref={inputRef} value={newMessage} onChange={(e) => setNewMessage(e.target.value)} placeholder={'Messages...'} />
+                            <Button type='submit' onClick={handleChange}>Send</Button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </>

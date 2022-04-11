@@ -1,0 +1,39 @@
+.chatroom {
+  display: flex;
+  width: 95%;
+  padding-top: 4%;
+
+  .chatroom_contacts {
+    width: 30%;
+    text-align: center;
+    border-right: 2px solid grey;
+    margin: 0;
+  }
+
+ .chatroom_chat{
+   position: relative;
+   padding-bottom: 3%;
+
+   div {
+    margin: 1% 2%
+  }
+}
+
+  .chatroom_form form {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 73%;
+    top: 96%;
+    position: fixed;
+
+    button {
+      width: 10%;
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
