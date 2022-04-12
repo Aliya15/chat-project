@@ -13,7 +13,8 @@ export const messagesReducer = (state = initialState, action) => {
                     id: index,
                     createdAt: {...res.createdAt},
                     photoURL: res.photoURL,
-                    uid: res.uid
+                    uid: res.uid,
+                    author: res.author
                 };
             });
             return {
@@ -26,7 +27,8 @@ export const messagesReducer = (state = initialState, action) => {
                 id: action.data.id,
                 createdAt: {...action.data.createdAt},
                 photoURL: action.data.photoURL,
-                uid: action.data.uid
+                uid: action.data.uid,
+                author: action.data.author
             };
             return {
                 ...state,

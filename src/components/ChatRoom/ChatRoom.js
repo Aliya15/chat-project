@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import SignOut from '../Authorization/SignOut';
+import TextBubble from './TextBubble'
 import {useDispatch, useSelector} from 'react-redux';
 import {inputText, messagesLoad, sendMessage} from '../../store/actions';
 import {Button, Input} from '@mui/material';
@@ -45,10 +46,8 @@ function ChatRoom() {
                 </div>
                 <div>
                     <div className="chatroom_chat">
-                        {messages.map(({text}, index) => {
-                            return (<div key={index}>
-                                <p>{text}</p>
-                            </div>);
+                        {messages.map((item, index) => {
+                            return (<TextBubble props={item} key={index} />);
                         })}
                     </div>
                     <div className="chatroom_form">

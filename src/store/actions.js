@@ -26,7 +26,7 @@ export function messagesLoad() {
 export function sendMessage(newMessage) {
     return async dispatch => {
         const db = getFirestore();
-        const {uid, photoURL} = auth.currentUser;
+        const {uid, photoURL, displayName} = auth.currentUser;
         const querySnapshot = await getDocs(collection(db, 'messages'));
         const docsData = [];
         querySnapshot.forEach(doc => docsData.push(doc.data()));
@@ -35,7 +35,8 @@ export function sendMessage(newMessage) {
             id: docsData.length,
             photoURL,
             uid,
-            createdAt: serverTimestamp()
+            createdAt: serverTimestamp(),
+            author: displayName
         };
         await addDoc(collection(db, 'messages'), messageToBeSent);
         dispatch(messagesLoad());
