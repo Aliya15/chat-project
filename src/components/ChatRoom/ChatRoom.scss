@@ -3,11 +3,15 @@
   padding-top: 4%;
   height: 96vh;
 
+  h2 {
+    margin-top: 0;
+  }
+
   .chatroom_contacts {
-    width: 30%;
-    text-align: center;
+    width: 28%;
+    text-align: left;
     border-right: 2px solid grey;
-    margin: 0;
+    margin: 0 0 0 10px;
     position: fixed;
     height: 100%;
 
@@ -24,7 +28,11 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     width: 70%;
-    height: 95%;
+    height: 94%;
+
+    h2{
+      margin-left: 10px;
+    }
   }
 
   .chatroom_form {

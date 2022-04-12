@@ -44,7 +44,7 @@ function ChatRoom() {
             <SignOut/>
             <div className="chatroom">
                 <div className="chatroom_contacts">
-                    <p>Contacts</p>
+                    <h2>Contacts</h2>
                     <div className='chatroom_contacts_list'>{authors.map((item, index) => {
                         return (
                             <p key={index}>{item}</p>
@@ -52,6 +52,7 @@ function ChatRoom() {
                     })}</div>
                 </div>
                 <div className="chatroom_chat">
+                    <h2>Chat Room</h2>
                     <div>
                         {messages.map((item, index) => {
                             return (<TextBubble props={item} key={index} />);
