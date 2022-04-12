@@ -1,34 +1,48 @@
 .chatroom {
   display: flex;
-  width: 95%;
   padding-top: 4%;
+  height: 96vh;
 
   .chatroom_contacts {
     width: 30%;
     text-align: center;
     border-right: 2px solid grey;
     margin: 0;
+    position: fixed;
+    height: 100%;
+
+    .chatroom_contacts_list {
+      margin-top: 10px;
+    }
   }
 
   .chatroom_chat {
     position: relative;
-    padding-bottom: 3%;
-
-    div {
-      margin: 1% 2%
-    }
+    width: 100%;
+    left: 30%;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 70%;
+    height: 95%;
   }
 
-  .chatroom_form form {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: 73%;
-    top: 96%;
-    position: fixed;
+  .chatroom_form {
 
-    button {
-      width: 10%;
+    .MuiInput-root {
+      width: 48%;
+    }
+    form {
+      display: flex;
+      align-items: center;
+      margin: 0px 10px;
+      width: 100%;
+      top: 94%;
+      position: fixed;
+
+      button {
+        width: 10%;
+      }
     }
   }
 

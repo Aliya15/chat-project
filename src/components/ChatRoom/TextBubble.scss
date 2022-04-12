@@ -1,0 +1,39 @@
+.text-bubble {
+  border-radius: 8px;
+  margin: 3% 2%;
+  .text-bubble_user {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 14px;
+    }
+
+    .text-bubble_photo {
+      border-radius: 49px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+  }
+
+  .text-bubble_message {
+    display: inline-flex;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    height: 26px;
+    align-items: center;
+
+    span {
+      font-size: 10px;
+      text-align: center;
+      margin: auto 5px auto;
+    }
+    p {
+      margin: 0 0 auto 6px;
+      text-align: center;
+    }
+  }
+}

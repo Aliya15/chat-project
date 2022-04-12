@@ -10,6 +10,8 @@ function ChatRoom() {
     const [newMessage, setNewMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const dispatch = useDispatch();
+    const listOfAuthors = messages.map((item) => item.author);
+    const authors = [...new Set(listOfAuthors)];
     const inputRef = useRef(null);
     const allMessages = useSelector(state => {
         const {messagesReducer} = state;
@@ -43,9 +45,14 @@ function ChatRoom() {
             <div className="chatroom">
                 <div className="chatroom_contacts">
                     <p>Contacts</p>
+                    <div className='chatroom_contacts_list'>{authors.map((item, index) => {
+                        return (
+                            <p key={index}>{item}</p>
+                        )
+                    })}</div>
                 </div>
-                <div>
-                    <div className="chatroom_chat">
+                <div className="chatroom_chat">
+                    <div>
                         {messages.map((item, index) => {
                             return (<TextBubble props={item} key={index} />);
                         })}
