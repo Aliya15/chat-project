@@ -1,22 +1,26 @@
 import React from 'react';
 import {Button} from '@mui/material';
 import {auth} from '../../firebaseConfig';
-import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import {GoogleAuthProvider, signInWithPopup, setPersistence, browserSessionPersistence} from 'firebase/auth';
+import {
+    useNavigate
+} from "react-router-dom";
 
 function Login() {
-    const handleClick = () => {
+    const navigate = useNavigate();
+    const handleClick = async () => {
         const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const user = result.user;
-            }).catch(() => {
-            // const errorCode = error.code;
-            // const errorMessage = error.message;
-            // const email = error.email;
-            // const credential = GoogleAuthProvider.credentialFromError(error);
-        });
+        try {
+            await setPersistence(auth, browserSessionPersistence);
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            console.log(user);
+            if (user) {
+                navigate("../chat", { replace: true });
+            }
+        } catch(e) {
+            console.error(e)
+        }
     };
 
     return (

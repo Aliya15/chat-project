@@ -22,16 +22,17 @@
 
   .chatroom_chat {
     position: relative;
-    width: 100%;
     left: 30%;
     overflow: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
     width: 70%;
-    height: 94%;
+    height: 88%;
+    top: 6%;
 
     h2{
       margin-left: 10px;
+      position: fixed;
     }
   }
 

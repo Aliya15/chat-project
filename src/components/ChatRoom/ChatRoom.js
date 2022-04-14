@@ -52,7 +52,6 @@ function ChatRoom() {
                     })}</div>
                 </div>
                 <div className="chatroom_chat">
-                    <h2>Chat Room</h2>
                     <div>
                         {messages.map((item, index) => {
                             return (<TextBubble props={item} key={index} />);
