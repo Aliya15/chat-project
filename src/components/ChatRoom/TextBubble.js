@@ -3,8 +3,7 @@ import SecondsToDate from '../../utils/SecondsToDate';
 import './TextBubble.scss'
 
 export default function TextBubble({props}) {
-    const date = new Date(TimestampFormatter(SecondsToDate(props.createdAt.seconds)));
-
+    const date = TimestampFormatter(SecondsToDate(props.createdAt.seconds));
     return (
         <div className='text-bubble'>
             <div className='text-bubble_user'>
@@ -13,7 +12,7 @@ export default function TextBubble({props}) {
             </div>
             <div className='text-bubble_message'>
                 <p>{props.text}</p>
-                <span>{date.toLocaleString()}</span>
+                <span>{date}</span>
             </div>
         </div>
     )

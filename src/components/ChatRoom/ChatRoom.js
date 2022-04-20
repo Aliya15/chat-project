@@ -9,10 +9,10 @@ import './ChatRoom.scss';
 function ChatRoom() {
     const [newMessage, setNewMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const newMessageRef = useRef(null);
     const dispatch = useDispatch();
     const listOfAuthors = messages.map((item) => item.author);
     const authors = [...new Set(listOfAuthors)];
-    const inputRef = useRef(null);
     const allMessages = useSelector(state => {
         const {messagesReducer} = state;
         return messagesReducer.messages;
@@ -24,14 +24,21 @@ function ChatRoom() {
         setNewMessage('');
     };
 
+    const focusOnLastMessage = () => {
+        newMessageRef.current.scrollTo(0, newMessageRef.current.scrollHeight);
+    }
+
     const handleChange = () => {
         dispatch(inputText(newMessage));
         setMessages(allMessages);
     };
 
     useEffect(() => {
+        focusOnLastMessage();
+    }, [messages.length]);
+
+    useEffect(() => {
         setMessages(allMessages);
-        inputRef.current.focus();
     }, [newMessage, allMessages]);
 
     useEffect(() => {
@@ -44,14 +51,14 @@ function ChatRoom() {
             <SignOut/>
             <div className="chatroom">
                 <div className="chatroom_contacts">
-                    <h2>Contacts</h2>
+                    <h2>Participants</h2>
                     <div className='chatroom_contacts_list'>{authors.map((item, index) => {
                         return (
                             <p key={index}>{item}</p>
                         )
                     })}</div>
                 </div>
-                <div className="chatroom_chat">
+                <div className="chatroom_chat" ref={newMessageRef}>
                     <div>
                         {messages.map((item, index) => {
                             return (<TextBubble props={item} key={index} />);
@@ -59,7 +66,9 @@ function ChatRoom() {
                     </div>
                     <div className="chatroom_form">
                         <form onSubmit={sendNewMessage}>
-                            <Input ref={inputRef} value={newMessage} onChange={(e) => setNewMessage(e.target.value)}
+                            <Input value={newMessage} onChange={(e) => {
+                                setNewMessage(e.target.value);
+                            }}
                                    placeholder={'Messages...'}/>
                             <Button type="submit" onClick={handleChange}>Send</Button>
                         </form>
