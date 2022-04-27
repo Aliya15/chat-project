@@ -26,3 +26,4 @@ yarn-error.log*
 dist
 package-lock.json
 src/firebaseConfig.js
+chatapp-6b4f9-firebase-adminsdk-lvx0y-2c2d14e43f.json

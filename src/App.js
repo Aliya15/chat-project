@@ -4,6 +4,7 @@ import ChatRoom from './components/ChatRoom/ChatRoom';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Spin from './components/Common/Spin';
 import RequireAuth from './RequireAuth';
+import NotFoundTheLocation from './components/notFoundTheLocation'
 
 function App() {
     return (
@@ -16,10 +17,14 @@ function App() {
                          path="/chat"
                          element={
                             <RequireAuth>
-                             <ChatRoom />
+                                <ChatRoom />
                             </RequireAuth>
                                 }
                             />
+                        <Route
+                            path="*"
+                            element={<NotFoundTheLocation />}
+                        />
                     </Routes>
                 </Router>
         </div>
